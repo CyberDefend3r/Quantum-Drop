@@ -34,8 +34,3 @@ def upload(file_object):
         file_path.unlink(missing_ok=True)
 
         return passphrase
-
-
-if __name__ == "__main__":
-    file_name = input("input filename: ")
-    upload(file_name)

@@ -22,8 +22,3 @@ def get(passphrase):
 
     else:
         return "", "UH-OH... Passphrase is wrong. Try again.", b""
-
-
-if __name__ == "__main__":
-    passphrase = input("Enter passphrase: ")
-    get(passphrase)
