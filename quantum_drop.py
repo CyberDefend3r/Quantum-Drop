@@ -68,7 +68,7 @@ def submit_passphrase(passphrase):
     cleanup.delete()
 
 
-start_server(main, port=443, debug=True)
+start_server(main, port=80, debug=True)
 popup(
     "Terms of Use",
     put_markdown(
