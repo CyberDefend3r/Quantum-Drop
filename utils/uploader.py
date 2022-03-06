@@ -31,6 +31,6 @@ def upload(file_object):
 
         pyminizip.compress(str(file_path), None, str(zip_file_path), passwrd, 5)
 
-        file_path.unlink(missing_ok=True)
+        file_path.unlink()
 
         return passphrase
