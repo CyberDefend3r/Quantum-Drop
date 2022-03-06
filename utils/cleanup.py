@@ -11,7 +11,7 @@ def delete():
 
     file_path = Path.cwd() / "files"
 
-    delete_time = arrow.now().shift.shift(days=-3)
+    delete_time = arrow.now().shift(days=-3)
 
     for file in file_path.rglob("*.zip"):
         if file.is_file():
