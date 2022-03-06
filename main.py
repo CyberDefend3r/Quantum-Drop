@@ -1,4 +1,4 @@
-from utils import uploader, retriever
+from utils import uploader, retriever, cleanup
 from pywebio import start_server, config
 from pywebio.output import *
 from pywebio.input import *
@@ -65,6 +65,7 @@ def submit_passphrase(passphrase):
         "Password",
         put_markdown(f"**{password}**"),
     )
+    cleanup.delete()
 
 
 start_server(main, port=443, debug=True)
