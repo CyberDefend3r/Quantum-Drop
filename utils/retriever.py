@@ -18,7 +18,7 @@ def get(passphrase):
         with open(file_path, "rb") as zipfile:
             zip_bytes = zipfile.read()
 
-        return file_path.name, password.get(passphrase), zip_bytes
+        return password.get(passphrase), zip_bytes
 
     else:
         return "", "UH-OH... Passphrase is wrong. Try again.", b""
