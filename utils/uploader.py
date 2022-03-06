@@ -7,7 +7,7 @@
 from pathlib import Path
 import pyminizip
 from hashlib import md5
-import utils.make_password as make_password
+import utils.password as password
 from wonderwords import RandomSentence
 
 
@@ -21,15 +21,15 @@ def upload(file_object):
             save_file.write(file_object["content"])
 
         passphrase = (
-            RandomSentence().sentence().strip("The ").replace("-", "").replace(".", "")
+            RandomSentence().sentence().strip("The ").replace(" ", "-").replace(".", "")
         )
 
-        password = make_password.generate(passphrase)
+        passwrd = password.generate(passphrase)
 
         zip_file_name = f"{md5(passphrase.encode()).hexdigest()}.zip"
         zip_file_path = file_path.parent / zip_file_name
 
-        pyminizip.compress(str(file_path), None, str(zip_file_path), password, 5)
+        pyminizip.compress(str(file_path), None, str(zip_file_path), passwrd, 5)
 
         file_path.unlink(missing_ok=True)
 

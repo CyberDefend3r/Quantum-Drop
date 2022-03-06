@@ -6,7 +6,7 @@
 
 from pathlib import Path
 from hashlib import md5
-import utils.make_password as make_password
+import utils.password as password
 
 
 def get(passphrase):
@@ -18,7 +18,7 @@ def get(passphrase):
         with open(file_path, "rb") as zipfile:
             zip_bytes = zipfile.read()
 
-        return file_path.name, make_password.get(passphrase), zip_bytes
+        return file_path.name, password.get(passphrase), zip_bytes
 
     else:
         return "", "UH-OH... Passphrase is wrong. Try again.", b""
