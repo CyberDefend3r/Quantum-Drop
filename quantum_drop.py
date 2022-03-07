@@ -7,6 +7,9 @@ from pywebio.pin import *
 
 @config(theme="dark")
 def main():
+    """
+    Main function to load web interface.
+    """
     put_grid(
         [
             [
@@ -51,6 +54,7 @@ def main():
             ),
         )
         a = file_upload("Upload File Anonymously - 50Mb max", max_size="50m")
+        # Upload the file.
         passphrase = uploader.upload(a)
         popup(
             "Use this passphrase to retrieve the file",
@@ -59,6 +63,12 @@ def main():
 
 
 def submit_passphrase(passphrase):
+    """
+    Retrieve the zip file using the passphrase.
+
+    Args:
+        passphrase (str): the passphrase to retreive the file.
+    """
     password, zip_bytes = retriever.get(passphrase)
     put_file(name="quantum-drop.zip", content=zip_bytes)
     popup(
