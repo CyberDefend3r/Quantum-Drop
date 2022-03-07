@@ -8,7 +8,7 @@ from pywebio.pin import *
 @config(theme="dark")
 def main():
     """
-    Main function to load web interface.
+    Quantum-Drop
     """
     put_grid(
         [
